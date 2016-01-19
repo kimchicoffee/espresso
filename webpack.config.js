@@ -3,8 +3,8 @@ var webpack = require('webpack');
 
 module.exports = {
 		entry: [
-		    'webpack-dev-server/client?http://0.0.0.0:3000',
-    		'webpack/hot/only-dev-server',
+		    'webpack-dev-server/client?http://0.0.0.0:3000', //0.0.0.0 allow access from same WiFi network
+    		'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
 			'./index.js'
 		],
 		output: {
@@ -16,10 +16,16 @@ module.exports = {
     		new webpack.HotModuleReplacementPlugin()
   		],
     	module: {
-    		loaders: [{
+    		loaders: [
+    		{
         		test: /\.js?$/,
-        		loaders: ['react-hot','babel'],
+        		loaders: [ 'react-hot', 'babel' ],
         		exclude: /node_modules/
-    		}]
+    		},
+    		{
+    			test: /\.scss$/,
+    			loaders: [ 'style', 'css', 'sass']
+    		}
+    		]
     	}
 }
