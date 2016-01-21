@@ -1,5 +1,5 @@
 import React from 'react';
-import Home from './home';
+import Home from './components/home';
 import { Provider } from 'react-redux';
 
 export default class App extends React.Component {
