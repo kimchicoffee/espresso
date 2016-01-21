@@ -1,7 +1,7 @@
 import React from 'react';
 
-export default class Header extends React.Component {
-	render() {
+const Header = React.createClass ({
+	render: function() {
 		return (
 			<div>
 				<h1>Pas de Sujin</h1>
@@ -15,4 +15,6 @@ export default class Header extends React.Component {
 			</div>
 		)
 	}
-}
+});
+
+module.exports = Header;

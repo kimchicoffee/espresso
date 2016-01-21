@@ -3,14 +3,16 @@ import Header from './header';
 import Main from './main';
 import Footer from './footer';
 
-export default class Index extends React.Component {
-	render() {
+const Index = React.createClass ({
+	render: function() {
 		return (
 			<div> 
 				<Header />
-				<Main />
+				<Main / >
 				<Footer />
 			</div>
 		)
 	}
-}
+});
+
+module.exports = Index;

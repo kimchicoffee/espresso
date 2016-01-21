@@ -1,11 +1,17 @@
 import React from 'react';
 
-export default class Main extends React.Component {
-	render() {
+const Main = React.createClass ({
+	getInitialState: function() {
+		return {title:'Blog'}
+	},
+
+	render: function() {
 		return (
 			<div>
-				<h1>main</h1>
+				<h1> {this.state.title} </h1>
 			</div>
 			)
 	}
-};
+});
+
+module.exports = Main;
