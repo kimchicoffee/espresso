@@ -1,17 +1,15 @@
+import { UPDATE_PAGE_TITLE } from '../constants/ActionTypes'
+
 const initialState = {
-	title: "pasdesujin"
-};
+	title: "PasdeSujin",
+	user: 'Sujin Lee'
+}
 
-export function update ( state = initialState, action ) {
-	console.log('update reducer called with state ', state , ' and action ', action);
-
-	switch (action.type) {
-		case 'UPDATE_PAGE_TITLE':
-			return {
-				...state,
-				title: 'honeybell'
-			}
+export default function update(state = initialState, action ) {
+	switch(action.type) {
+		case UPDATE_PAGE_TITLE:
+			return Object.assign({}, state, { title : action.title})
 		default:
-			return state;
+			return state
 	}
 }

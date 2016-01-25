@@ -1,17 +1,18 @@
-import React from 'react';
+import React,{ Component, PropTypes } from 'react';
+import Blog from './blog'
 
-const Main = React.createClass ({
-	getInitialState: function() {
-		return {title:'Blog'}
-	},
+export default class Main extends Component {
 
-	render: function() {
+	render() {
 		return (
 			<div>
-				<h1> {this.state.title} </h1>
+				<h1> {this.props.title }</h1>
+				<Blog />
 			</div>
 			)
 	}
-});
+}
 
-module.exports = Main;
+Main.propTypes ={
+	title: PropTypes.string.isRequired
+}

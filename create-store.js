@@ -1,9 +1,14 @@
-import { createStore, applyMiddleware, combineReducers } from 'redux';
-import * as reducers from './reducers/page'
+import { createStore, applyMiddleware} from 'redux';
+import reducer from './reducers'
 
-export default function(data) {
-	var reducer = combineReducers(reducers);
-	var store = createStore(reducer);
+export default function(initialState) {
+	const store = createStore(reducer, initialState);
 
+	if(module.hot) {
+		module.hot.accept('./reducers', function(){
+			const nextReducer = require('./reducers')
+			store.replaceReducer(nextReducer)
+		})
+	}
 	return store;
 }

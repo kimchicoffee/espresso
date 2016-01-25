@@ -1,18 +1,16 @@
 import React from 'react';
-import Header from './header';
+// "connect" decorator connects component Redux's store.
+import {connect} from 'react-redux';
+
 import Main from './main';
-import Footer from './footer';
 
-const Index = React.createClass ({
-	render: function() {
+
+export default class Index extends React.Component {
+	render() {
 		return (
-			<div> 
-				<Header />
-				<Main / >
-				<Footer />
+			<div>
+				<Main />
 			</div>
-		)
+			)
 	}
-});
-
-module.exports = Index;
+}

@@ -1,20 +1,15 @@
-import React from 'react';
+import React,{ Component } from 'react';
 
-const Header = React.createClass ({
-	render: function() {
+export default class Header extends Component{
+	render() {
 		return (
-			<div>
-				<h1>Pas de Sujin</h1>
-				<nav>
+				<nav className = "navbar">
 					<ul>
 						<li> Home </li>
 						<li> Blog </li>
 						<li> Projet </li>
 					</ul>
 				</nav>
-			</div>
-		)
+			)
 	}
-});
-
-module.exports = Header;
+}

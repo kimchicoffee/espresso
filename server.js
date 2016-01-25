@@ -12,10 +12,10 @@ import config from './webpack.config';
 
 
 //Connet to database
-//mongoose.connect('mongodb://localhost/pasdesujin-dev');
-//mongoose.connection.on('connected', function() {
-//	console.log('mongoose is connected to mongodb://localhost/pasdesujin-dev');
-//});
+mongoose.connect('mongodb://localhost/pasdesujin-dev');
+mongoose.connection.on('connected', function() {
+	console.log('mongoose is connected to mongodb://localhost/pasdesujin-dev');
+});
 
 let app = express();
 let port = 3000;
@@ -31,6 +31,9 @@ let output = template({
 app.get('/', function (req, res, next) {
 	res.send(output);
 });
+
+// api routes
+app.use('/api/posts', require('./api/post/controller'));
 
 let compiler = webpack(config)
 app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }))

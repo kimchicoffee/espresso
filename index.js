@@ -1,12 +1,16 @@
 import React from 'react';
 import {render} from 'react-dom';
 import createStore from './create-store';
-import App from './app';
-import './style.scss';
+import { Provider } from 'react-redux';
+import App from './containers/App';
+import './static/style.scss';
 
 // create redux instance
 const store = createStore();
 
 render(
-	<App store={store} />, document.getElementById('app')
+	<Provider store = { store }>
+		<App />
+	</Provider >,
+	document.getElementById('app')
 );
