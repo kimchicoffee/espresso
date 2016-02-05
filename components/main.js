@@ -1,18 +1,18 @@
-import React,{ Component, PropTypes } from 'react';
-import Blog from './blog'
+import React,{ Component, PropTypes } from 'react'
+import { connect } from 'react-redux'
+import updatePageTitle from '../actions/page'
 
-export default class Main extends Component {
-
-	render() {
+function Main({ title, updatePageTitle ,children}) {
 		return (
 			<div>
-				<h1> {this.props.title }</h1>
-				<Blog />
+				<h1>{ title }</h1>
+				{children}
 			</div>
 			)
-	}
 }
 
-Main.propTypes ={
-	title: PropTypes.string.isRequired
-}
+export default connect (
+	function(state){
+		return {title: state.page.title}
+	}, {updatePageTitle}
+	)(Main)

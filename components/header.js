@@ -1,13 +1,13 @@
-import React,{ Component } from 'react';
+import React,{ Component } from 'react'
+import { Link } from 'react-router'
 
 export default class Header extends Component{
 	render() {
 		return (
 				<nav className = "navbar">
 					<ul>
-						<li> Home </li>
-						<li> Blog </li>
-						<li> Projet </li>
+						<li><Link to='/'> Home </Link></li>
+						<li><Link to='/blog'> Blog </Link></li>
 					</ul>
 				</nav>
 			)
